@@ -28,6 +28,7 @@ def get_profile(username: str) -> dict:
 @router.post("/")
 def create_profile(profile_data: dict) -> dict:
     """Create a new user profile."""
+    from backend.store import store
     required = ["username", "dread_level", "favorite_nothing", "bio"]
     missing = [f for f in required if f not in profile_data]
     if missing:

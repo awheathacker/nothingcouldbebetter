@@ -31,6 +31,7 @@ def get_post(post_id: str) -> dict:
 @router.post("/")
 def create_post(post_data: dict) -> dict:
     """Create a new forum post."""
+    from backend.store import store
     required = ["author", "title", "content"]
     missing = [f for f in required if f not in post_data]
     if missing:
