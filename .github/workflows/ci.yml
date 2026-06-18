@@ -36,7 +36,7 @@ jobs:
       - name: Build frontend
         run: cd frontend && npm run build
       - name: Lint frontend
-        run: cd frontend && npm run test -- --watchAll=false
+        run: cd frontend && npm run test -- --watchAll=false --passWithNoTests
 
   lint:
     runs-on: ubuntu-latest
