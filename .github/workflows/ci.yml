@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install backend deps
+        run: pip install -r backend/requirements.txt
+      - name: Run backend tests
+        run: pytest tests/ -v --tb=short
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install -r backend/requirements.txt
+      - name: Python syntax check
+        run: |
+          python -m py_compile backend/__init__.py
+          python -m py_compile backend/app.py
+          python -m py_compile backend/models/__init__.py
+          python -m py_compile backend/services/__init__.py
+          python -m py_compile backend/store.py
+          python -m py_compile backend/utils/__init__.py
+          python -m py_compile backend/routes/__init__.py
+          python -m py_compile backend/routes/landing.py
+          python -m py_compile backend/routes/profiles.py
+          python -m py_compile backend/routes/matching.py
+          python -m py_compile backend/routes/forum.py
+      - name: Run pytest
+        run: pytest tests/ -v
