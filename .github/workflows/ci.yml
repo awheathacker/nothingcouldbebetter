@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  backend-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,6 +22,21 @@ jobs:
         run: pip install -r backend/requirements.txt
       - name: Run backend tests
         run: pytest tests/ -v --tb=short
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install frontend deps
+        run: cd frontend && npm ci
+      - name: Build frontend
+        run: cd frontend && npm run build
+      - name: Lint frontend
+        run: cd frontend && npm run test -- --watchAll=false --passWithNoTests
 
   lint:
     runs-on: ubuntu-latest
