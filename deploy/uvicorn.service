@@ -1,5 +1,16 @@
-[service]
-Type=notify
-ExecStart=/var/www/nothingcouldbebetter/.venv/bin/uvicorn backend.app:app --host 127.0.0.1 --port 8000 --workers 3
+[Unit]
+Description=Nothing Could Be Better - FastAPI Backend
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
 WorkingDirectory=/var/www/nothingcouldbebetter
 Environment=PYTHONPATH=/var/www/nothingcouldbebetter
+ExecStart=/var/www/nothingcouldbebetter/.venv/bin/uvicorn backend.app:app --host 127.0.0.1 --port 8000 --workers 3 --reload
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
