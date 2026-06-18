@@ -1,0 +1,149 @@
+/* Nothing Could Be Better — Void Theme */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0a0a0f;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.hero .subtitle {
+  font-size: 1.2rem;
+  color: #8888aa;
+  margin-bottom: 30px;
+}
+
+.hero .tagline {
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #c0c0e0;
+  margin-bottom: 20px;
+}
+
+.hero .body-text {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #9999bb;
+  font-size: 1.1rem;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  font-size: 2rem;
+  color: #ccccdd;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #2a2a3e;
+  padding-bottom: 10px;
+}
+
+section p {
+  color: #8888aa;
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: #15152a;
+  border: 1px solid #2a2a4e;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-card h3 {
+  color: #a0a0cc;
+  margin-bottom: 8px;
+}
+
+.profile-card p {
+  color: #8888aa;
+  margin-bottom: 8px;
+}
+
+.bio {
+  font-style: italic;
+  color: #707099;
+}
+
+.match-card {
+  background: #15152a;
+  border: 1px solid #2a2a4e;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.match-pair {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #a0a0cc;
+}
+
+.match-reason {
+  color: #707099;
+  font-style: italic;
+}
+
+.post {
+  background: #15152a;
+  border: 1px solid #2a2a4e;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.post h4 {
+  color: #a0a0cc;
+  margin-bottom: 5px;
+}
+
+.post p {
+  color: #707099;
+  margin-bottom: 5px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #5a5a7a;
+  border-top: 1px solid #2a2a3e;
+  margin-top: 60px;
+}
+
+.footer-small {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
